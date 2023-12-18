@@ -5,6 +5,6 @@ WORKDIR /app
 COPY requirements.txt .
 RUN pip install -r requirements.txt
 
-COPY . .  # Tüm dosyaları kopyalayın
+COPY . . 
 
 CMD [ "python", "food-calculator.py" ]
