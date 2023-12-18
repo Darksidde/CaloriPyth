@@ -28,11 +28,12 @@ pipeline {
             }
         }
 
-        stage('SonarQube Analysis') {
+       stage('SonarQube Analysis') {
             steps {
                 script {
+                    def scannerHome = tool 'sonar-scanner';
                     withSonarQubeEnv('SonarQubeServer') {
-                        bat 'sonar-scanner'
+                        bat "${scannerHome}/bin/sonar-scanner -Dsonar.host.url=http://192.168.1.144:9000/"
                         // Burada SonarQube analizini başlatan adımları yapabilirsiniz
                     }
                 }
