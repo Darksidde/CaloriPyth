@@ -33,7 +33,7 @@ pipeline {
                 script {
                     def scannerHome = tool 'sonar-scanner';
                     withSonarQubeEnv('SonarServer') {
-                        bat "${scannerHome}/bin/sonar-scanner -Dsonar.host.url=http://192.168.1.144:9000/"
+                        bat "${scannerHome}/bin/sonar-scanner -Dsonar.projectKey=PythonFoodCalc -Dsonar.host.url=http://192.168.1.144:9000/"
                         // Burada SonarQube analizini başlatan adımları yapabilirsiniz
                     }
                 }
