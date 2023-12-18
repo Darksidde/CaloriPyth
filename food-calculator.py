@@ -1,3 +1,5 @@
+import sys
+
 class FoodCalculator:
     def __init__(self):
         self.food_calories = {
@@ -7,7 +9,7 @@ class FoodCalculator:
             "grapes": 67,
             "cheese": 402,
             "bread": 79,
-            # İhtiyaç duyulan diğer yiyecekleri buraya ekleyebilirsiniz
+            # Diğer yiyecekler buraya eklenebilir
         }
 
     def calculate_calories(self, food):
@@ -19,6 +21,9 @@ class FoodCalculator:
 
 if __name__ == "__main__":
     calculator = FoodCalculator()
-    user_input = input("Lütfen yiyeceğin adını girin: ")
-    calories = calculator.calculate_calories(user_input)
-    print(f"{user_input.capitalize()} {calories} kalori içerir.")
+    if len(sys.argv) < 2:
+        print("Lütfen bir yiyecek adı girin.")
+    else:
+        user_input = sys.argv[1]
+        calories = calculator.calculate_calories(user_input)
+        print(f"{user_input.capitalize()} {calories} kalori içerir.")
